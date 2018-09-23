@@ -1,11 +1,11 @@
 class Dog:
-    def __init__(self,name,kind,age):
+    def __init__(self,name,kind,age, is_hungry=True):
         self.name=name
         self.kind=kind
         self.age=age
         
-    
-     
+    def eat(self):
+        return False 
     
                
 
@@ -17,7 +17,6 @@ class Pets:
 
     my_pets=[tom,fletcher,larry]
     print("I have three dogs")
-    
     print ("And they're all mammals, of course.")
 
     

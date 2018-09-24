@@ -11,4 +11,4 @@ pet_list=[tom,fletcher,larry]
 
 for pet in pet_list:
     pet.walk
-    print("{} is walking".format(pet.name))
+    print("{} is walking!".format(pet.name))

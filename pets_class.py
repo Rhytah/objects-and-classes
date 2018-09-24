@@ -34,6 +34,7 @@ class Pets:
         # print(pet.kind)
 
 
+
 if ['kind'] == 'something':
     print ("what are they?")
 print ("And they're all mammals, of course")
@@ -48,5 +49,17 @@ print("My dogs are not hungry")
 
             
 
+    # print("I have three dogs")
+    # print ("{} is {}.".format(tom.name, tom.age))
+    # print("{} is {}.".format(fletcher.name, fletcher.age))
+    # print("{} is {}.".format(larry.name, larry.age))
+    # print ("And they're all mammals, of course.")
+    print ("I have 3 dogs.")
+
+    for pet in my_pets:
+        print(pet.name,"is",pet.age)
+        
+    print ("And they're all mammals, of course.")
+    
     
     

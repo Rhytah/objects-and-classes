@@ -32,8 +32,16 @@ class Pets:
         pet.eat(is_hungry)
         # print("my dog is not hungry")
         # print(pet.kind)
-    print ("And they're all mammals, of course.")
-    print("My dogs are not hungry")
+
+
+if ['kind'] == 'something':
+    print ("what are they?")
+print ("And they're all mammals, of course")
+
+if  ['is_hungry']== True:
+    print ("My dogs are hungry")
+print("My dogs are not hungry")
+    
         
       
     

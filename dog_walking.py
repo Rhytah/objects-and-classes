@@ -10,5 +10,5 @@ larry=Dog(name='Larry',kind='mammal',age=9)
 pet_list=[tom,fletcher,larry]
 
 for pet in pet_list:
-    pet.walk
+    pet.walk()
     print("{} is walking!".format(pet.name))

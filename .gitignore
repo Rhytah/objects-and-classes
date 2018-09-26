@@ -3,4 +3,3 @@ env
 .pytest_cache/*
 .vscode
 .coverage
-.coveragerc

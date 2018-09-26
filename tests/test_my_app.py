@@ -1,8 +1,6 @@
 from project.my_app import User
 import unittest
 
-
-
 class TestUser(unittest.TestCase):
     def setUp(self):
         self.user=User()
@@ -16,7 +14,22 @@ class TestUser(unittest.TestCase):
             gender="female"
 
         )
+        self.second_user= dict(
+
+            name="peter",
+            username="peter",
+            age=-4,
+            email="paxs@mail.com",
+            password="password",
+            gender=""
+
+        )
     def test_register_user(self):
         self.assertEqual(len(self.accounts),0)
         self.user.signup(**self.sample_user)
         self.assertEqual(len(self.accounts),1)
+    
+    def test_register_similar_username_to_name(self):
+        with self.assertRaises(ValueError)as context:
+            self.user.signup(**self.second_user)
+            self.assertTrue("Username should be different form name and not less than 4 characters" in context.exception)

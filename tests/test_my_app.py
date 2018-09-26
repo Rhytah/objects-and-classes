@@ -18,10 +18,19 @@ class TestUser(unittest.TestCase):
 
             name="peter",
             username="peter",
-            age=-4,
-            email="paxs@mail.com",
+            age=23,
+            email="paxsmailom",
             password="password",
             gender=""
+
+        )
+        self.third_user=dict(
+            name="olga",
+            username="freshgal",
+            age="old",
+            email="jokes",
+            password="pass",
+            gender="female"
 
         )
     def test_register_user(self):
@@ -33,3 +42,23 @@ class TestUser(unittest.TestCase):
         with self.assertRaises(ValueError)as context:
             self.user.signup(**self.second_user)
             self.assertTrue("Username should be different form name and not less than 4 characters" in context.exception)
+   
+    def test_register_user_with_invalid_email_format(self):
+        with self.assertRaises(ValueError)as context:
+            self.user.signup(**self.second_user)
+            self.assertTrue("Please use valid email format, john@mail.com" in context.exception)
+    
+    def test_password_format(self):
+        with self.assertRaises(ValueError)as context:
+            self.user.signup(**self.third_user)
+            # self.assertTrue("Password should be at least 4 characters, contain a capital letter, a small letter,a digit and a special character" in context.exception)
+
+    def test_valid_age(self):
+        with self.assertRaises(ValueError)as context:
+            self.user.signup(**self.third_user)
+            # self.assertTrue("Age should be a number higher than 0"in context.exception)
+
+    def test_gender_input(self):
+        with self.assertRaises(ValueError)as context:
+            self.user.signup(**self.second_user)
+            # self.assertTrue("Gender should be male or female" in context.exception)

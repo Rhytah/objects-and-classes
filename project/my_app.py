@@ -1,8 +1,10 @@
+import re
 class User:
     def __init__(self):
         self.accounts=[]
         self.user={}
         self.status=False
+
     def signup(self, name, username,age,email,password, gender):
         self.user=dict(
             name= name,
@@ -14,18 +16,27 @@ class User:
             # status = status
         )
         
-                    
-        if username==name :
-            raise ValueError("Username should be different form name and not less than 4 characters")
-            # return {"Error":"username cannot be the same as name or less than 4 characters"}
 
-        if age ==str or age <0:
+                    
+        if username==name or len(username) < 4 :
+            raise ValueError("Username should be different from name and not less than 4 characters")
+            
+
+        if type(age) != int or age < 0:
             raise ValueError("Age should be a number higher than 0")
-            #  return {"Error":"Age cannot be a character or less than 0"}
-        if gender !="female" and gender != "male":
+           
+        if not gender in ["female", "male"]:
             raise ValueError("Gender should be male or female")
-        user=(name,username,age,email,password,gender)
-        self.accounts.append(user)
+
+        if not re.match(r"([\w\.-]+)@([\w\.-]+)(\.[\w\.]+$)", email):
+            raise ValueError("Please use valid email format, john@mail.com")
+
+        if not re.match(r'[A-Za-z0-9@#$%^&+=]{4,}', password):
+            raise ValueError("Password should be at least 4 characters, contain a capital letter, a small letter,a digit and a special character")
+
+        
+
+        self.accounts.append(self.user)
 
 
 

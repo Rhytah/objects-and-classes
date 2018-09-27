@@ -3,9 +3,9 @@ class User:
     def __init__(self):
         self.accounts=[]
         self.user={}
-        self.status=False
+        
 
-    def signup(self, name, username,age,email,password, gender):
+    def signup(self, name, username,age,email,password, gender, status="inactive"):
         self.user=dict(
             name= name,
             username= username,

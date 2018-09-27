@@ -51,14 +51,14 @@ class TestUser(unittest.TestCase):
     def test_password_format(self):
         with self.assertRaises(ValueError)as context:
             self.user.signup(**self.third_user)
-            # self.assertTrue("Password should be at least 4 characters, contain a capital letter, a small letter,a digit and a special character" in context.exception)
+            self.assertTrue("Password should be at least 4 characters, contain a capital letter, a small letter,a digit and a special character" in context.exception)
 
     def test_valid_age(self):
         with self.assertRaises(ValueError)as context:
             self.user.signup(**self.third_user)
-            # self.assertTrue("Age should be a number higher than 0"in context.exception)
+            self.assertTrue("Age should be a number higher than 0"in context.exception)
 
     def test_gender_input(self):
         with self.assertRaises(ValueError)as context:
             self.user.signup(**self.second_user)
-            # self.assertTrue("Gender should be male or female" in context.exception)
+            self.assertTrue("Gender should be male or female" in context.exception)

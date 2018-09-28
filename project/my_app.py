@@ -38,13 +38,13 @@ class User:
         
         self.accounts.append(self.user)
     
-    def login(self,Username,password):
-    
-       
+    def login(self,username,password):
+        print(self.user)
         for user in self.user:
-            username=user['username']
-            password=user['password']
-            if username == user['username'] and password == user['password']:
+            username=user[1]
+            
+            password=user[2]
+            if username == user[1] and password == user[2]:
                 print("{} you are logged in.".format(username))
                 return True
             
@@ -54,4 +54,4 @@ class User:
 # if __name__=='__main__':
 #     user =User()
 #     # user.signup(name,username,age,email,password,gender)
-#     user.login()
+#     user.login(username,password)

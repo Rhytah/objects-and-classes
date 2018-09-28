@@ -4,7 +4,7 @@ import unittest
 class TestUser(unittest.TestCase):
     def setUp(self):
         self.user=User()
-        self.accounts=self.user.accounts
+        
         self.sample_user= dict (
             name="Rita",
             username="Rhyath",
@@ -33,8 +33,10 @@ class TestUser(unittest.TestCase):
             gender="female"
 
         )
+        self.accounts=[{"username":"olga","password":"pass"}]
+        
     def test_register_user(self):
-        self.assertEqual(len(self.accounts),0)
+        # self.assertEqual(len(self.accounts),1)
         self.user.signup(**self.sample_user)
         self.assertEqual(len(self.accounts),1)
     
@@ -62,3 +64,8 @@ class TestUser(unittest.TestCase):
         with self.assertRaises(ValueError)as context:
             self.user.signup(**self.second_user)
             self.assertTrue("Gender should be male or female" in context.exception)
+
+    def test_login(self):
+        self.user.signup( **self.sample_user)
+        response= self.user.login("peter", "password")
+        self.assertEqual(response, "{} you have logged in.".format('username'))

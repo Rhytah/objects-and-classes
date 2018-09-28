@@ -1,4 +1,5 @@
 import re
+
 class User:
     def __init__(self):
         self.accounts=[]
@@ -13,7 +14,7 @@ class User:
             email=email,
             password=password,
             gender =gender,
-            # status = status
+            status = "inactive"
         )
         
 
@@ -35,12 +36,22 @@ class User:
             raise ValueError("Password should be at least 4 characters, contain a capital letter, a small letter,a digit and a special character")
 
         
-
         self.accounts.append(self.user)
+    
+    def login(self,Username,password):
+    
+       
+        for user in self.user:
+            username=user['username']
+            password=user['password']
+            if username == user['username'] and password == user['password']:
+                print("{} you are logged in.".format(username))
+                return True
+            
 
 
 
 # if __name__=='__main__':
-#     user=User()
-
-#     user.signup(name,username,age,email,password,gender)
+#     user =User()
+#     # user.signup(name,username,age,email,password,gender)
+#     user.login()
